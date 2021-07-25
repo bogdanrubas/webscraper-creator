@@ -45,3 +45,6 @@ npm run seed
 ```bash
 npm run start
 ```
+
+Create an account > create new crawler > edit crawler > add depths and fill input > save crawler.
+Compiled files are in backend/compiles directory.
