@@ -34,17 +34,11 @@ cd backend
 ```bash
 npx prisma generate
 ```
-6. Seed the database
-```bash
-cd backend
-```
-```bash
-npm run seed
-```
-7. Run App
+6. Run App
 ```bash
 npm run start
 ```
 
-Create an account > create new crawler > edit crawler > add depths and fill input > save crawler.
-Compiled files are in backend/compiles directory.
+7. Compile files
+Create an account > create new crawler > edit crawler > add depths and fill inputs > save crawler.
+Compiled files are in backend/compiled directory.
