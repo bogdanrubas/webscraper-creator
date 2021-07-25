@@ -6,9 +6,7 @@
   "scripts": {
     "client": "cd frontend && npm run dev -- -p 4002",
     "server": "cd backend && npm run start:dev",
-    "templatesComponents": "nodemon templates/components.js",
-    "templatesContext": "nodemon templates/context.js",
-    "start": "concurrently \"npm run server\" \"npm run client\" \"npm run templatesComponents\" \"npm run templatesContext\""
+    "start": "concurrently \"npm run server\" \"npm run client\""
   },
   "keywords": [],
   "author": "",
