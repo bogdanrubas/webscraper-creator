@@ -1,0 +1,5 @@
+mutation createSpider($crawlerVersionId: Int!, $data: CreateSpiderInput!) {
+    createSpider(crawlerVersionId: $crawlerVersionId, data: $data) {
+      id
+    }
+  }

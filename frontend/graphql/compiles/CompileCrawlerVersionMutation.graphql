@@ -1,0 +1,3 @@
+mutation compileCrawlerVersion($crawlerVersionId: Int!) {
+    compileCrawlerVersion(crawlerVersionId: $crawlerVersionId)
+  }

@@ -1,0 +1,5 @@
+mutation deleteCrawler($crawlerId: Int!) {
+  deleteCrawler(crawlerId: $crawlerId) {
+    id
+  }
+}

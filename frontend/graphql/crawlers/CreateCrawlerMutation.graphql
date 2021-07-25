@@ -1,0 +1,5 @@
+mutation createCrawler($data: CreateCrawlerInput!) {
+  createCrawler(data: $data) {
+    id
+  }
+}

@@ -1,0 +1,66 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Crawler {
+  actualVersion   Int?
+  createdAt       DateTime         @default(now())
+  id              Int              @id @default(autoincrement())
+  name            String
+  updatedAt       DateTime
+  userId          Int?
+  user            User?            @relation(fields: [userId], references: [id])
+  crawlerVersions CrawlerVersion[]
+}
+
+model CrawlerVersion {
+  createdAt        DateTime
+  id               Int               @id @default(autoincrement())
+  lastUsage        String?
+  status           String?
+  updatedAt        DateTime
+  crawlerId        Int?
+  crawler          Crawler?          @relation(fields: [crawlerId], references: [id])
+  crawlerStartUrls CrawlerStartUrl[]
+  spiders          Spider[]
+}
+
+model CrawlerStartUrl {
+  crawled           Boolean?
+  createdAt         DateTime
+  errorFields       String?
+  errorsDescription String?
+  hasErrors         Boolean?
+  id                Int             @id @default(autoincrement())
+  updatedAt         DateTime
+  url               String?
+  crawlerVersionId  Int?
+  crawlerVersion    CrawlerVersion? @relation(fields: [crawlerVersionId], references: [id])
+}
+
+model Spider {
+  arguments        String?
+  createdAt        DateTime
+  depth            Int?
+  id               Int             @id @default(autoincrement())
+  name             String?
+  requestType      String?
+  template         String?
+  updatedAt        DateTime
+  crawlerVersionId Int?
+  crawlerVersion   CrawlerVersion? @relation(fields: [crawlerVersionId], references: [id])
+}
+
+model User {
+  createdAt DateTime
+  username  String?   @unique
+  id        Int       @id @default(autoincrement())
+  password  String?
+  updatedAt DateTime
+  crawlers  Crawler[]
+}

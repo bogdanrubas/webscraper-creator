@@ -1,0 +1,8 @@
+mutation createCrawlerStartUrl(
+    $crawlerVersionId: Int!
+    $data: CreateCrawlerStartUrlInput!
+  ) {
+    createCrawlerStartUrl(crawlerVersionId: $crawlerVersionId, data: $data) {
+      url
+    }
+  }

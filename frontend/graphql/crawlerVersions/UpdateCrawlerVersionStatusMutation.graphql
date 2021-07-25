@@ -1,0 +1,11 @@
+mutation updateCrawlerVersionStatus(
+    $crawlerVersionId: Int!
+    $status: String!
+  ) {
+    updateCrawlerVersionStatus(
+      crawlerVersionId: $crawlerVersionId
+      status: $status
+    ) {
+      id
+    }
+  }

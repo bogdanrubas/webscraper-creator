@@ -1,0 +1,8 @@
+mutation createCrawlerVersion(
+    $crawlerId: Int!
+    $data: CreateCrawlerVersionInput!
+  ) {
+    createCrawlerVersion(crawlerId: $crawlerId, data: $data) {
+      id
+    }
+  }

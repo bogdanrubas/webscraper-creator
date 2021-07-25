@@ -1,0 +1,126 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type CrawlerStartUrl {
+  id: ID!
+  url: String!
+  crawled: Boolean!
+  hasErrors: Boolean!
+  errorsDescription: String!
+  errorFields: String!
+}
+
+type Spider {
+  id: ID!
+  depth: Int!
+  template: String!
+  name: String!
+  requestType: String!
+  arguments: String
+}
+
+type CrawlerVersion {
+  id: ID!
+  lastUsage: String!
+  status: String!
+  crawlerStartUrls: [CrawlerStartUrl!]
+  spiders: [Spider!]
+}
+
+type Crawler {
+  id: ID!
+  name: String!
+  actualVersion: Float
+  crawlerVersions: [CrawlerVersion!]
+}
+
+type User {
+  id: ID!
+  email: String!
+  crawlers: [Crawler!]
+  role: Role!
+}
+
+"""User role"""
+enum Role {
+  ADMIN
+  USER
+}
+
+type Token {
+  accessToken: String!
+  refreshToken: String!
+}
+
+type Auth {
+  accessToken: String!
+  refreshToken: String!
+  user: User!
+  username: String!
+}
+
+type Query {
+  helloWorld: String!
+  hello(name: String!): String!
+  me: User!
+  crawlers: [Crawler!]!
+  crawler(crawlerId: Int!): Crawler!
+  crawlerVersions: [CrawlerVersion!]!
+  crawlerStartUrls: [CrawlerStartUrl!]!
+  spiders: [Spider!]!
+}
+
+type Mutation {
+  signup(data: SignupInput!): Auth!
+  login(data: LoginInput!): Auth!
+  refreshToken(token: String!): Token!
+  changePassword(data: ChangePasswordInput!): User!
+  deleteCrawler(crawlerId: Int!): Crawler!
+  createCrawler(data: CreateCrawlerInput!): Crawler!
+  createCrawlerVersion(data: CreateCrawlerVersionInput!, crawlerId: Int!): CrawlerVersion!
+  updateCrawlerVersionStatus(status: String!, crawlerVersionId: Int!): CrawlerVersion!
+  createCrawlerStartUrl(data: CreateCrawlerStartUrlInput!, crawlerVersionId: Int!): CrawlerStartUrl!
+  createSpider(data: CreateSpiderInput!, crawlerVersionId: Int!): Spider!
+  compileCrawlerVersion(crawlerVersionId: Int!): Boolean!
+}
+
+input SignupInput {
+  username: String!
+  password: String!
+}
+
+input LoginInput {
+  username: String!
+  password: String!
+}
+
+input ChangePasswordInput {
+  oldPassword: String!
+  newPassword: String!
+}
+
+input CreateCrawlerInput {
+  name: String!
+}
+
+input CreateCrawlerVersionInput {
+  lastUsage: String!
+  status: String!
+}
+
+input CreateCrawlerStartUrlInput {
+  url: String!
+}
+
+input CreateSpiderInput {
+  depth: Float!
+  template: String!
+  arguments: String!
+  name: String!
+  requestType: String!
+}
+
+type Subscription {
+  crawlerCreated: Crawler!
+}

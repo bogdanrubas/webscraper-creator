@@ -1,0 +1,6 @@
+query crawler($crawlerId: Int!) {
+    crawler(crawlerId: $crawlerId) {
+      id
+      name
+    }
+  }

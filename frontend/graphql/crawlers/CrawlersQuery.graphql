@@ -1,0 +1,6 @@
+query {
+  crawlers {
+    id
+    name
+  }
+}

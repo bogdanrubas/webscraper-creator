@@ -1,0 +1,87 @@
+// {
+//   "compilerOptions": {
+//     "baseUrl": "./",
+//     "paths": {
+//       "layout/*": [
+//         "./layout/*"
+//       ],
+//       "config/*": [
+//         "./config/*"
+//       ],
+//       "graphql/*": [
+//         "./graphql/*"
+//       ]
+//     },
+//     "target": "ES2017",
+//     "lib": [
+//       "es6",
+//       "dom",
+//       "dom.iterable",
+//       "esnext"
+//     ],
+//     "allowJs": true,
+//     "skipLibCheck": true,
+//     "strict": false,
+//     "forceConsistentCasingInFileNames": true,
+//     "noEmit": true,
+//     "esModuleInterop": true,
+//     "module": "ESNEXT",
+//     "moduleResolution": "node",
+//     "resolveJsonModule": true,
+//     "isolatedModules": true,
+//     "jsx": "preserve",
+//   },
+//   "include": [
+//     "next-env.d.ts",
+//     "**/*.ts",
+//     "**/*.tsx"
+//   ],
+//   "exclude": [
+//     "node_modules"
+//   ]
+// }
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "layout/*": [
+        "./layout/*"
+      ],
+      "config/*": [
+        "./config/*"
+      ],
+      "context/*": [
+        "./context/*"
+      ],
+      "graphql/*": [
+        "./graphql/*"
+      ]
+    },
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "downlevelIteration": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "**/*.ts",
+    "**/*.tsx"
+  ]
+}
